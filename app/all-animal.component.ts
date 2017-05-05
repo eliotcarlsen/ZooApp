@@ -13,11 +13,12 @@ import { Animal } from './animal.model';
           <option value="under2">Animals Under 2 years old</option>
           <option value="over2">Animals Over 2 years old</option>
         </select>
+        <caretakers [childAnimalList]="childAnimalList"></caretakers>
       </div>
-      <h6>Caretakers Needed:</h6>
     </div>
   </div>
-  <div class="col-md-4" *ngFor="let currentAnimal of childAnimalList | age:filterByAge">
+
+  <div class="col-md-4" *ngFor="let currentAnimal of childAnimalList | age:filterByAge | species:input">
     <h3>{{currentAnimal.species}}</h3>
     <h4>{{currentAnimal.name}}</h4>
     <p>{{currentAnimal.age}}</p>
