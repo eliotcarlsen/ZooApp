@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AllAnimalComponent } from './all-animal.component';
 import { NewAnimalComponent } from './new-animal.component';
 import { EditAnimalComponent } from './edit-animal.component';
+import { Age } from './agefilter.pipe'
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, AllAnimalComponent, NewAnimalComponent, EditAnimalComponent ],
+  declarations: [ AppComponent, AllAnimalComponent, NewAnimalComponent, EditAnimalComponent, Age ],
   bootstrap:    [ AppComponent ]
 })
 
