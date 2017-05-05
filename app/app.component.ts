@@ -4,17 +4,21 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-  <h1>Zoo App</h1>
-  <all-animal [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></all-animal>
-  <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
-  <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+  <div class="container">
+    <h1>Zoo App</h1>
+    <div class="row">
+      <div class="col-md-9">
+        <all-animal [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></all-animal>
+      </div>
+      <div class="col-md-3">
+        <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+        <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+      </div>
+    </div>
+  </div>
   `
 })
 export class AppComponent {
-  currentTime = new Date();
-  month: number = this.currentTime.getMonth() + 1;
-  day: number = this.currentTime.getDate();
-  year: number = this.currentTime.getFullYear();
 
   masterAnimalList: Animal[] = [
     new Animal("Arctic Fox", "Moon", 2, "Carnivore", "Northern Trail", 5, "Female", "Cool shade", "Loud noises"),

@@ -4,13 +4,20 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'all-animal',
   template:`
-  <label>Filter Animals By Age</label>
-  <select (change)="onChange($event.target.value)">
-    <option value="allAnimals">All Animals</option>
-    <option value="under2">Animals Under 2 years old</option>
-    <option value="over2">Animals Over 2 years old</option>
-  </select>
-  <div *ngFor="let currentAnimal of childAnimalList | age:filterByAge">
+  <div class = "row">
+    <div class = "col-md-12">
+      <div class="form-group">
+        <label>Filter Animals By Age</label>
+        <select (change)="onChange($event.target.value)">
+          <option value="allAnimals">All Animals</option>
+          <option value="under2">Animals Under 2 years old</option>
+          <option value="over2">Animals Over 2 years old</option>
+        </select>
+      </div>
+      <h6>Caretakers Needed:</h6>
+    </div>
+  </div>
+  <div class="col-md-4" *ngFor="let currentAnimal of childAnimalList | age:filterByAge">
     <h3>{{currentAnimal.species}}</h3>
     <h4>{{currentAnimal.name}}</h4>
     <p>{{currentAnimal.age}}</p>
@@ -20,7 +27,8 @@ import { Animal } from './animal.model';
     <p>{{currentAnimal.sex}}</p>
     <p>{{currentAnimal.likes}}</p>
     <p>{{currentAnimal.dislikes}}</p>
-    <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit</button>
+    <p>{{currentAnimal.date}}</p>
+    <button class="btn btn-primary btn-xs" (click)="editButtonHasBeenClicked(currentAnimal)">Edit</button>
   `
 })
 
