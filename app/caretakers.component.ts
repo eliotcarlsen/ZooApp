@@ -4,18 +4,16 @@ import { Animal } from './animal.model';
 @Component({
   selector: "caretakers",
   template: `
+  <div class="well">
     <h4>Total Caretakers Needed For Today: {{caretakersNeeded(childAnimalList)}}</h4>
-    <label>Species:</label>
-    <input [(ngModel)]="input" />
-    <h4>Caretakers Needed By Species: {{caretakersNeeded(childAnimalList | species:input)}}
-    <br>
+  </div>
 
   `
 })
 
 export class CaretakersComponent {
   @Input() childAnimalList: Animal[];
-  @Output() inputEmit = new EventEmitter();
+  @Output() inputSent = new EventEmitter();
 
   caretakersNeeded(childAnimalList){
     var totalCaretakers = 0;
@@ -24,5 +22,5 @@ export class CaretakersComponent {
     }
     return totalCaretakers;
   }
-  
+
 }
